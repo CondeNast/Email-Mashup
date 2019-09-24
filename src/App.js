@@ -3,6 +3,7 @@ import { SessionProvider } from "dash-component-library/context";
 import { qlikConfig } from "./config";
 import { Sheet } from "./sheets";
 import withStyles from "react-jss";
+import Email from "./email-ui-components/email"
 
 const styles = {
   app: {
@@ -21,7 +22,7 @@ function App({ classes }) {
   return (
     <div className={classes.app}>
       <SessionProvider qlikConfig={qlikConfig}>
-        <Sheet />
+        <Email />
       </SessionProvider>
     </div>
   );
