@@ -1,0 +1,15 @@
+{
+  "type":"mashup",
+  "name":"mashup-template",
+  "description":"Mashup Template",
+  "homepage":"",
+  "author":"John Bellizzi",
+  "version":"0.1.0",
+  "preview":"preview.png",
+  "keywords":"qlik-sense, mashup, react",
+  "license":"",
+  "repository":"",
+  "dependencies":{
+    "qlik-sense":">=1.0.x"
+  }
+}

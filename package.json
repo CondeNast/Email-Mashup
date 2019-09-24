@@ -1,0 +1,45 @@
+{
+  "name": "mashup-template",
+  "version": "0.1.0",
+  "homepage": "https://dash.condenast.com/extensions/mashup-template",
+  "private": true,
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "dash-component-library": "file:dash-component-library-0.0.2.tar.gz",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-icons": "^3.7.0",
+    "react-jss": "^8.6.1",
+    "react-scripts": "3.1.1",
+    "rxjs": "^6.5.2",
+    "rxq": "^2.0.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "copy-qext": "cp mashup-template.qext ./build",
+    "zipBuild": "bestzip mashup-template.zip ./build",
+    "build-mashup": "npm run build && npm run copy-qext && npm run zipBuild",
+    "update:dash-component-library": "rm -f dash-component-library-0.0.2.tar.gz && cp \"/Users/johnbellizzi/Desktop/Clients/Conde Nast/Dash Component Library/Development/dash-component-library/dash-component-library-0.0.2.tar.gz\" ./ && npm install file:dash-component-library-0.0.2.tar.gz"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "bestzip": "^2.1.4"
+  }
+}
