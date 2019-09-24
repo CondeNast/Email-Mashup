@@ -1,9 +1,9 @@
 {
   "type":"mashup",
-  "name":"mashup-template",
-  "description":"Mashup Template",
+  "name":"Email-Test",
+  "description":"React App for Email Mashup",
   "homepage":"",
-  "author":"John Bellizzi",
+  "author":"Conde Nast Data Viz",
   "version":"0.1.0",
   "preview":"preview.png",
   "keywords":"qlik-sense, mashup, react",
