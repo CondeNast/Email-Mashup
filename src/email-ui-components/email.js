@@ -56,7 +56,7 @@ const Email = ({ classes }) => {
                 <div className={classes.rowItem}>
                   <QdtComponent
                     type="QdtViz"
-                    app={"KPI Performance"}
+                    app={"Email Mashup"}
                     qdtProps={{
                       id: d,
                       height: "100px"
@@ -74,22 +74,22 @@ const Email = ({ classes }) => {
         <Tile title={title.news}>
           <div className={classes.row}>
             <div className={classes.fullRowItem}>
-              <QdtComponent
+              {/* <QdtComponent
                 type="QdtViz"
-                app={"KPI Performance"}
+                app={"Email Mashup"}
                 qdtProps={{
                   id: newsData,
                   height: "500px"
                 }}
-              ></QdtComponent>
+              ></QdtComponent> */}
             </div>
           </div>
         </Tile>
       </div>
-      <EmailDualChart data={subscriptionData} title={title.subscriptions} />
+      {/* <EmailDualChart data={subscriptionData} title={title.subscriptions} />
       <EmailDualChart data={engagementData} title={title.engagement} />
       <EmailMultipleChart data={revenueData} title={title.revenue} />
-      <EmailMultipleChart data={trafficData} title={title.traffic} />
+      <EmailMultipleChart data={trafficData} title={title.traffic} /> */}
     </div>
   );
 };
