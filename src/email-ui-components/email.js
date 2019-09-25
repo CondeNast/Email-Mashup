@@ -1,5 +1,4 @@
 import React from "react";
-import { qlikConfig } from "../config";
 import { Tile, QdtComponent } from "dash-component-library/components";
 import { withStyles } from "@material-ui/styles";
 import EmailDualChart from "./email-dual-chart";
