@@ -3,29 +3,35 @@ import { Tile, QdtComponent } from "dash-component-library/components";
 import { withStyles } from "@material-ui/styles";
 
 const styles = {
-    tileContainer:{
-        margin:"20px"
-    },
-    row: {
-        display: "flex",
-        flexDirection: "row",
-        marginBottom: "25px"
-      },
-      fullRowItem: {
-        flex: 2
-      },
-      rowItem: {
-        flex: 1
-      }
+  tileContainer: {
+    margin: "20px"
+  },
+  row: {
+    display: "flex",
+    flexDirection: "row",
+    margin: "0px 0px 25px 20px"
+  },
+  fullRowItem: {
+    flex: 2,
+    //border: "1px solid black",
+    //height: "500px",
+    marginRight: "20px"
+  },
+  rowItem: {
+    flex: 1,
+    //border: "1px solid black",
+    //height: "500px",
+    marginRight: "20px"
+  }
 };
 
-const EmailMultipleCharts = ({ classes, data, title }) => {
+const EmailMultipleCharts = ({ classes, data, title,type }) => {
   return (
     <div className={classes.tileContainer}>
       <Tile title={title}>
         <div className={classes.row}>
-              <div className={classes.rowItem}>
-                <QdtComponent
+          <div className={type === "revenue"? classes.rowItem : classes.fullRowItem}>
+            <QdtComponent
                   type="QdtViz"
                   app={"KPI Performance"}
                   qdtProps={{
@@ -33,9 +39,9 @@ const EmailMultipleCharts = ({ classes, data, title }) => {
                     height: "400px"
                   }}
                 ></QdtComponent>
-              </div>
-              <div className={classes.fullRowItem}>
-                <QdtComponent
+          </div>
+          <div className={type === "revenue"? classes.fullRowItem : classes.rowItem}>
+            <QdtComponent
                   type="QdtViz"
                   app={"KPI Performance"}
                   qdtProps={{
@@ -43,15 +49,14 @@ const EmailMultipleCharts = ({ classes, data, title }) => {
                     height: "400px"
                   }}
                 ></QdtComponent>
-              </div>
-              </div>
+          </div>
+        </div>
 
-        
-          {data.chartId3.map(d=>{
-            return(
-              <div className={classes.row}>
+        {data.chartId3.map(d => {
+          return (
+            <div className={classes.row}>
               <div className={classes.fullRowItem}>
-              <QdtComponent
+                <QdtComponent
                 type="QdtViz"
                 app={"KPI Performance"}
                 qdtProps={{
@@ -59,14 +64,10 @@ const EmailMultipleCharts = ({ classes, data, title }) => {
                   height: "400px"
                 }}
               ></QdtComponent>
+              </div>
             </div>
-            </div>
-            )
-          })}
-
-            );
-          })}
-       
+          );
+        })}
       </Tile>
     </div>
   );

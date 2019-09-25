@@ -9,7 +9,9 @@ const styles = {
     row: {
         display: "flex",
         flexDirection: "column",
-        marginBottom: "25px"
+        margin: "0px 20px 25px",
+        //border:"1px solid black",
+        //height:"500px"
       },
       fullRowItem: {
         flex: 2
@@ -20,9 +22,9 @@ const EmailDualCharts = ({ classes, data, title }) => {
   return (
     <div className={classes.tileContainer}>
       <Tile title={title}>
-        <div className={classes.row}>
           {data.map(d => {
             return (
+                <div className={classes.row}>
               <div className={classes.fullRowItem}>
                 <QdtComponent
                   type="QdtViz"
@@ -33,9 +35,10 @@ const EmailDualCharts = ({ classes, data, title }) => {
                   }}
                 ></QdtComponent>
               </div>
+              </div>
             );
           })}
-        </div>
+        
       </Tile>
     </div>
   );

@@ -11,13 +11,17 @@ const styles = {
   row: {
     display: "flex",
     flexDirection: "row",
-    marginBottom: "25px"
+    margin: "0px 20px 25px"
   },
   rowItem: {
-    flex: 1
+    flex: 1,
+    //border:"1px solid black",
+    //height:"250px",
+    marginRight:"20px"
   },
   fullRowItem: {
-    flex: 2
+    flex: 2,
+    //border:"1px solid black",
   }
 };
 const timeData = ["WKCG", "VDYAVG", "PJZNFHY", "ABCCRQJ", "PXSYT"];
@@ -87,7 +91,7 @@ const Email = ({ classes }) => {
       </div>
       <EmailDualChart data={subscriptionData} title={title.subscriptions} />
       <EmailDualChart data={engagementData} title={title.engagement} />
-      <EmailMultipleChart data={revenueData} title={title.revenue} />
+      <EmailMultipleChart data={revenueData} title={title.revenue} type="revenue"/>
       <EmailMultipleChart data={trafficData} title={title.traffic} />
     </div>
   );
