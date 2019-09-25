@@ -6,10 +6,7 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "dash-component-library": "0.0.5",
-<<<<<<< HEAD
-=======
     "qdt-components": "^1.3.28",
->>>>>>> origin/master
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-icons": "^3.7.0",
@@ -24,13 +21,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-<<<<<<< HEAD
-    "copy-qext": "cp Email-Test.qext ./build",
-    "zipBuild": "bestzip Email-Test.zip ./build",
-=======
     "copy-qext": "cp Email-Text.qext ./build",
     "zipBuild": "bestzip Email-Text.zip ./build",
->>>>>>> origin/master
     "build-mashup": "npm run build && npm run copy-qext && npm run zipBuild",
     "update:dash-component-library": "rm -f dash-component-library-1.0.0.tar.gz && cp \"/Users/johnbellizzi/Desktop/Clients/Conde Nast/Dash Component Library/Development/dash-component-library/dash-component-library-1.0.0.tar.gz\" ./ && npm install file:dash-component-library-1.0.0.tar.gz"
   },
