@@ -4,7 +4,6 @@ import { qlikConfig } from "./config";
 import { Sheet } from "./sheets";
 import Email from "./email-ui-components/email"
 import withStyles from "react-jss";
-import Email from "./email-ui-components/email"
 
 const styles = {
   app: {
