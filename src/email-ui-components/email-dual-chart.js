@@ -19,6 +19,7 @@ const styles = {
 };
 
 const EmailDualCharts = ({ classes, data, title }) => {
+  //returning tiles with two charts 
   return (
     <div className={classes.tileContainer}>
       <Tile title={title}>
@@ -28,7 +29,7 @@ const EmailDualCharts = ({ classes, data, title }) => {
               <div className={classes.fullRowItem}>
                 <QdtComponent
                   type="QdtViz"
-                  app={"KPI Performance"}
+                  app={"Email Mashup"}
                   qdtProps={{
                     id: d,
                     height: "400px"

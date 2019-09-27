@@ -15,29 +15,26 @@ const styles = {
   },
   rowItem: {
     flex: 1,
-    //border:"1px solid black",
-    //height:"250px",
     marginRight:"20px"
   },
   fullRowItem: {
-    flex: 2,
-    //border:"1px solid black",
+    flex: 2
   }
 };
-const timeData = ["WKCG", "VDYAVG", "PJZNFHY", "ABCCRQJ", "PXSYT"];
-const newsData = "XCYTJ";
-const subscriptionData = ["RPNSKFZ", "CJFJMJN"];
-const engagementData = ["JWPMWN", "BLMKPQN"];
+const timeData = ["cUhxAW", "FdueQs", "dMzNwdC", "LzMmPve", "PtugDN"];
+const newsData = "XCYtj";
+const subscriptionData = ["RpNskFZ", "cJFjMjN"];
+const engagementData = ["JwPMwn", "BLMkPQn"];
 
 const revenueData = {
-  chartId1: "RUMHHFK",
-  chartId2: "PEKKS",
-  chartId3: ["ZEXKST"]
+  chartId1: "RUMhhFk",
+  chartId2: "PeKKS",
+  chartIdArray: ["zexksT"]
 };
 const trafficData = {
-  chartId1: "EZPWKU",
-  chartId2: "EJZJE",
-  chartId3: ["AMGPVAJ", "PRHBYM"]
+  chartId1: "ezpwKU",
+  chartId2: "eJZJe",
+  chartIdArray: ["amGPVAj", "prhbYm"]
 };
 const title = {
   summary: "EMAIL SUMMARY",
@@ -59,10 +56,9 @@ const Email = ({ classes }) => {
                 <div className={classes.rowItem}>
                   <QdtComponent
                     type="QdtViz"
-                    app={"KPI Performance"}
                     qdtProps={{
                       id: d,
-                      height: "100px"
+                      height: "150px"
                     }}
                   ></QdtComponent>
                 </div>
@@ -79,7 +75,7 @@ const Email = ({ classes }) => {
             <div className={classes.fullRowItem}>
               <QdtComponent
                 type="QdtViz"
-                app={"KPI Performance"}
+                app={"Email Mashup"}
                 qdtProps={{
                   id: newsData,
                   height: "500px"
