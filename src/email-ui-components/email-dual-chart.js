@@ -3,32 +3,32 @@ import { Tile, QdtComponent } from "dash-component-library/components";
 import { withStyles } from "@material-ui/styles";
 
 const styles = {
-    tileContainer:{
-        margin:"20px"
-    },
-    row: {
-        display: "flex",
-        flexDirection: "column",
-        margin: "0px 20px 25px",
-        //border:"1px solid black",
-        //height:"500px"
-      },
-      fullRowItem: {
-        flex: 2
-      }
+  tileContainer: {
+    margin: "20px"
+  },
+  row: {
+    display: "flex",
+    flexDirection: "column",
+    margin: "0px 20px 25px"
+    //border:"1px solid black",
+    //height:"500px"
+  },
+  fullRowItem: {
+    flex: 2
+  }
 };
 
 const EmailDualCharts = ({ classes, data, title }) => {
-  //returning tiles with two charts 
+  //returning tiles with two charts
   return (
     <div className={classes.tileContainer}>
       <Tile title={title}>
-          {data.map(d => {
-            return (
-                <div className={classes.row}>
+        {data.map((d, i) => {
+          return (
+            <div className={classes.row} key={i}>
               <div className={classes.fullRowItem}>
                 <QdtComponent
-                  type="QdtViz"
+                  type='QdtViz'
                   app={"Email Mashup"}
                   qdtProps={{
                     id: d,
@@ -36,10 +36,9 @@ const EmailDualCharts = ({ classes, data, title }) => {
                   }}
                 ></QdtComponent>
               </div>
-              </div>
-            );
-          })}
-        
+            </div>
+          );
+        })}
       </Tile>
     </div>
   );

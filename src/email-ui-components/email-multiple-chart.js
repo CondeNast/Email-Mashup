@@ -25,48 +25,56 @@ const styles = {
   }
 };
 
-const EmailMultipleCharts = ({ classes, data, title,type }) => {
+const EmailMultipleCharts = ({ classes, data, title, type }) => {
   //returning tiles with more than two charts
   return (
     <div className={classes.tileContainer}>
       <Tile title={title}>
         <div className={classes.row}>
           {/* Checking if it is of type revenue to assign particular class and handle spacing */}
-          <div className={type === "revenue"? classes.rowItem : classes.fullRowItem}>
+          <div
+            className={
+              type === "revenue" ? classes.rowItem : classes.fullRowItem
+            }
+          >
             <QdtComponent
-                  type="QdtViz"
-                  app={"Email Mashup"}
-                  qdtProps={{
-                    id: data.chartId1,
-                    height: "400px"
-                  }}
-                ></QdtComponent>
+              type='QdtViz'
+              app={"Email Mashup"}
+              qdtProps={{
+                id: data.chartId1,
+                height: "400px"
+              }}
+            ></QdtComponent>
           </div>
           {/* Checking if it is of type revenue to assign particular class and handle spacing */}
-          <div className={type === "revenue"? classes.fullRowItem : classes.rowItem}>
+          <div
+            className={
+              type === "revenue" ? classes.fullRowItem : classes.rowItem
+            }
+          >
             <QdtComponent
-                  type="QdtViz"
-                  app={"Email Mashup"}
-                  qdtProps={{
-                    id: data.chartId2,
-                    height: "400px"
-                  }}
-                ></QdtComponent>
+              type='QdtViz'
+              app={"Email Mashup"}
+              qdtProps={{
+                id: data.chartId2,
+                height: "400px"
+              }}
+            ></QdtComponent>
           </div>
         </div>
         {/* returning the charts in chartIdArray */}
-        {data.chartIdArray.map(d => {
+        {data.chartIdArray.map((d, i) => {
           return (
-            <div className={classes.row}>
+            <div className={classes.row} key={i}>
               <div className={classes.fullRowItem}>
                 <QdtComponent
-                type="QdtViz"
-                app={"Email Mashup"}
-                qdtProps={{
-                  id: d,
-                  height: "400px"
-                }}
-              ></QdtComponent>
+                  type='QdtViz'
+                  app={"Email Mashup"}
+                  qdtProps={{
+                    id: d,
+                    height: "400px"
+                  }}
+                ></QdtComponent>
               </div>
             </div>
           );

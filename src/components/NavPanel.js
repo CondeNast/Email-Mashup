@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useSession } from "dash-component-library/context";
-import { qAskReplay, invalidations } from "rxq";
+import { invalidations } from "rxq";
 import { map } from "rxjs/operators";
+import { qAskReplayRetry } from "dash-component-library/operators";
 import {
   Button,
   BrandSelector,
@@ -40,7 +41,7 @@ const DropdownButton = withStyles(styles)(
     return (
       <Button
         className={classes.dropdownButton}
-        Icon={<img className="dropdown-icon" src={dropdown} />}
+        Icon={<img className='dropdown-icon' src={dropdown} alt='drop-down' />}
         {...dropdownButtonProps}
       >
         {children}
@@ -59,14 +60,15 @@ export default withStyles(styles)(({ classes }) => {
   useEffect(() => {
     const sub$ = doc$
       .pipe(
-        qAskReplay("GetVariableByName", "vMaxDate"),
+        qAskReplayRetry("GetVariableByName", "vMaxDate"),
         invalidations(true),
-        qAskReplay("GetLayout"),
+        qAskReplayRetry("GetLayout"),
         map(layout => layout.qText)
       )
       .subscribe(setDataAsOfDate);
 
     return () => sub$.unsubscribe();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const [currentBrandSelection, setCurrentBrandSelection] = useState(null);
@@ -86,13 +88,33 @@ export default withStyles(styles)(({ classes }) => {
         className={classes.dropdown}
       >
         <BrandSelector
-          field="brand"
+          field='Brand'
           setSelectedBrand={setCurrentBrandSelection}
+          fieldMap={{
+            Allure: "ALL",
+            "Architectural Digest": "AD",
+            "Ars Technica": "ARST",
+            "Bon Appetit": "BA",
+            Brides: "BRDE",
+            "CN Traveler": "CNT",
+            Epicurious: "EPIC",
+            Glamour: "GLAM",
+            "Golf Digest": "GFDG",
+            GQ: "GQ",
+            Pitchfork: "PTFK",
+            Self: "SELF",
+            "Teen Vogue": "VOGT",
+            "The New Yorker": "TNY",
+            "Vanity Fair": "VF",
+            Vogue: "VOG",
+            "W Magazine": "W",
+            Wired: "WIRE"
+          }}
         />
       </Dropdown>
       <Dropdown
         DropdownButton={DropdownButton}
-        dropdownButtonChildren="Period"
+        dropdownButtonChildren='Period'
         className={classes.dropdown}
       >
         <div
@@ -102,7 +124,7 @@ export default withStyles(styles)(({ classes }) => {
           )}
         >
           <QdtComponent
-            type="QdtViz"
+            type='QdtViz'
             qdtProps={{
               type: "vizlib-calendar",
               id: "zfSE",

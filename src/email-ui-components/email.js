@@ -15,7 +15,7 @@ const styles = {
   },
   rowItem: {
     flex: 1,
-    marginRight:"20px"
+    marginRight: "20px"
   },
   fullRowItem: {
     flex: 2
@@ -51,11 +51,11 @@ const Email = ({ classes }) => {
       <div className={classes.tileContainer}>
         <Tile title={title.summary}>
           <div className={classes.row}>
-            {timeData.map(d => {
+            {timeData.map((d, i) => {
               return (
-                <div className={classes.rowItem}>
+                <div className={classes.rowItem} key={i}>
                   <QdtComponent
-                    type="QdtViz"
+                    type='QdtViz'
                     app={"Email Mashup"}
                     qdtProps={{
                       id: d,
@@ -69,28 +69,30 @@ const Email = ({ classes }) => {
         </Tile>
       </div>
 
-      {/* News Tile */}
+      {/* Newsletter Tile */}
       <div className={classes.tileContainer}>
         <Tile title={title.news}>
           <div className={classes.row}>
             <div className={classes.fullRowItem}>
-              {/* <QdtComponent
-                type="QdtViz"
+              <QdtComponent
+                type='QdtViz'
                 app={"Email Mashup"}
                 qdtProps={{
                   id: newsData,
                   height: "500px"
                 }}
-              ></QdtComponent> */}
+              ></QdtComponent>
             </div>
           </div>
         </Tile>
       </div>
-      {/* <EmailDualChart data={subscriptionData} title={title.subscriptions} />
+      <EmailDualChart data={subscriptionData} title={title.subscriptions} />
       <EmailDualChart data={engagementData} title={title.engagement} />
-      <EmailMultipleChart data={revenueData} title={title.revenue} />
-      <EmailMultipleChart data={trafficData} title={title.traffic} /> */}
-      <EmailMultipleChart data={revenueData} title={title.revenue} type="revenue"/>
+      <EmailMultipleChart
+        data={revenueData}
+        title={title.revenue}
+        type='revenue'
+      />
       <EmailMultipleChart data={trafficData} title={title.traffic} />
     </div>
   );

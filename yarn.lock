@@ -3541,10 +3541,10 @@ damerau-levenshtein@^1.0.4:
   resolved "https://registry.yarnpkg.com/damerau-levenshtein/-/damerau-levenshtein-1.0.5.tgz#780cf7144eb2e8dbd1c3bb83ae31100ccc31a414"
   integrity sha512-CBCRqFnpu715iPmw1KrdOrzRqbdFwQTwAWyyyYS42+iAgHCuXZ+/TdMgQkUENPomxEz9z1BEzuQU2Xw0kUuAgA==
 
-dash-component-library@0.0.9:
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/dash-component-library/-/dash-component-library-0.0.9.tgz#7f46dfe98754407a86e15c4c34c3fa863aa86835"
-  integrity sha512-BozWACvzdFkLtia/ZZ7vHYG7BbWtsmhNd5F7UzJPBdDdvzkeCQ/Mfj45vTAtlvBT2/xTLLPqJR3xxMgVWDzytA==
+dash-component-library@0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/dash-component-library/-/dash-component-library-0.1.8.tgz#1a10c79c399046023c9722aef78a1fa8451d507b"
+  integrity sha512-qWEVShYWMbH25hVk9GrwCOsCgirj1mUM0k6FqkCclMzBHi72GDTYVqP406BEhmhj5r4SbxyAMtB6qMCwM3Y7Gw==
   dependencies:
     "@material-ui/core" "^4.4.2"
     classnames "^2.2.6"

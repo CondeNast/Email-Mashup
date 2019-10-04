@@ -7,11 +7,12 @@ import {
   Navigator
 } from "dash-component-library/components";
 import { useSession } from "dash-component-library/context";
-import { qAskReplay, invalidations } from "rxq";
+import { invalidations } from "rxq";
 import { switchMap, retry } from "rxjs/operators";
 import { format } from "d3";
 import withStyles from "react-jss";
 import classNames from "classnames";
+import { qAskReplayRetry } from "dash-component-library/operators";
 
 const styles = {
   kpiContainer: {
@@ -41,7 +42,7 @@ export default withStyles(styles)(({ classes }) => {
   useEffect(() => {
     const sub$ = doc$
       .pipe(
-        qAskReplay("CreateSessionObject", {
+        qAskReplayRetry("CreateSessionObject", {
           qInfo: { qType: "kpi" },
           articles: {
             qValueExpression: "=Count(distinct entityid)"
@@ -76,29 +77,29 @@ export default withStyles(styles)(({ classes }) => {
   return (
     <div>
       <NavPanel />
-      <Tile anchor="summary" title="SUMMARY">
+      <Tile anchor='summary' title='SUMMARY'>
         <div className={classNames(classes.kpiContainer, classes.tile)}>
-          <Kpi label="Articles">{kpiValues.articles}</Kpi>
-          <Kpi label="Median UVS">{kpiValues.medianUVS}</Kpi>
-          <Kpi label="Avg HVA">{kpiValues.avgHVA}</Kpi>
-          <Kpi label="Avg Above Median">{kpiValues.avgAboveMedian}</Kpi>
+          <Kpi label='Articles'>{kpiValues.articles}</Kpi>
+          <Kpi label='Median UVS'>{kpiValues.medianUVS}</Kpi>
+          <Kpi label='Avg HVA'>{kpiValues.avgHVA}</Kpi>
+          <Kpi label='Avg Above Median'>{kpiValues.avgAboveMedian}</Kpi>
         </div>
       </Tile>
       <Tile
         className={classes.tile}
-        anchor="category-performance"
-        title="CATEGORY PERFORMANCE"
+        anchor='category-performance'
+        title='CATEGORY PERFORMANCE'
       >
         <QdtComponent
-          type="QdtViz"
+          type='QdtViz'
           qdtProps={{ type: "viz", id: "BqfqmH", height: "800px" }}
         />
         <QdtComponent
-          type="QdtViz"
+          type='QdtViz'
           qdtProps={{ type: "viz", id: "RKwDPC", height: "40px" }}
         />
         <QdtComponent
-          type="QdtViz"
+          type='QdtViz'
           qdtProps={{ type: "viz", id: "wUgGx", height: "500px" }}
         />
       </Tile>
