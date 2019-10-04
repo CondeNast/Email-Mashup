@@ -2,8 +2,9 @@ import React from "react";
 import { SessionProvider } from "dash-component-library/context";
 import { qlikConfig } from "./config";
 import { Sheet } from "./sheets";
-import withStyles from "react-jss";
 import Email from "./email-ui-components/email"
+import withStyles from "react-jss";
+import { NavPanel } from "./components";
 
 const styles = {
   app: {
@@ -22,6 +23,7 @@ function App({ classes }) {
   return (
     <div className={classes.app}>
       <SessionProvider qlikConfig={qlikConfig}>
+        <NavPanel />
         <Email />
       </SessionProvider>
     </div>

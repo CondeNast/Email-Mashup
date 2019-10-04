@@ -1,5 +1,4 @@
 import React from "react";
-import { qlikConfig } from "../config";
 import { Tile, QdtComponent } from "dash-component-library/components";
 import { withStyles } from "@material-ui/styles";
 import EmailDualChart from "./email-dual-chart";
@@ -12,29 +11,30 @@ const styles = {
   row: {
     display: "flex",
     flexDirection: "row",
-    marginBottom: "25px"
+    margin: "0px 20px 25px"
   },
   rowItem: {
-    flex: 1
+    flex: 1,
+    marginRight:"20px"
   },
   fullRowItem: {
     flex: 2
   }
 };
-const timeData = ["WKCG", "VDYAVG", "PJZNFHY", "ABCCRQJ", "PXSYT"];
-const newsData = "XCYTJ";
-const subscriptionData = ["RPNSKFZ", "CJFJMJN"];
-const engagementData = ["JWPMWN", "BLMKPQN"];
+const timeData = ["cUhxAW", "FdueQs", "dMzNwdC", "LzMmPve", "PtugDN"];
+const newsData = "XCYtj";
+const subscriptionData = ["RpNskFZ", "cJFjMjN"];
+const engagementData = ["JwPMwn", "BLMkPQn"];
 
 const revenueData = {
-  chartId1: "RUMHHFK",
-  chartId2: "PEKKS",
-  chartId3: ["ZEXKST"]
+  chartId1: "RUMhhFk",
+  chartId2: "PeKKS",
+  chartIdArray: ["zexksT"]
 };
 const trafficData = {
-  chartId1: "EZPWKU",
-  chartId2: "EJZJE",
-  chartId3: ["AMGPVAJ", "PRHBYM"]
+  chartId1: "ezpwKU",
+  chartId2: "eJZJe",
+  chartIdArray: ["amGPVAj", "prhbYm"]
 };
 const title = {
   summary: "EMAIL SUMMARY",
@@ -59,7 +59,7 @@ const Email = ({ classes }) => {
                     app={"Email Mashup"}
                     qdtProps={{
                       id: d,
-                      height: "100px"
+                      height: "150px"
                     }}
                   ></QdtComponent>
                 </div>
@@ -90,6 +90,8 @@ const Email = ({ classes }) => {
       <EmailDualChart data={engagementData} title={title.engagement} />
       <EmailMultipleChart data={revenueData} title={title.revenue} />
       <EmailMultipleChart data={trafficData} title={title.traffic} /> */}
+      <EmailMultipleChart data={revenueData} title={title.revenue} type="revenue"/>
+      <EmailMultipleChart data={trafficData} title={title.traffic} />
     </div>
   );
 };
