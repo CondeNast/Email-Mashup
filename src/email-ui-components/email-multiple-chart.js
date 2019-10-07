@@ -25,11 +25,11 @@ const styles = {
   }
 };
 
-const EmailMultipleCharts = ({ classes, data, title, type }) => {
+const EmailMultipleCharts = ({ classes, data, title, type, downloadIds }) => {
   //returning tiles with more than two charts
   return (
     <div className={classes.tileContainer}>
-      <Tile title={title}>
+      <Tile title={title} downloadIds={downloadIds}>
         <div className={classes.row}>
           {/* Checking if it is of type revenue to assign particular class and handle spacing */}
           <div

@@ -21,7 +21,7 @@ const styles = {
     flex: 2
   }
 };
-const timeData = ["cUhxAW", "FdueQs", "dMzNwdC", "LzMmPve", "PtugDN"];
+const timeData = ["wKCg", "VdyavG", "PJZnfHy", "AbCcrQj", "pXSyT"];
 const newsData = "XCYtj";
 const subscriptionData = ["RpNskFZ", "cJFjMjN"];
 const engagementData = ["JwPMwn", "BLMkPQn"];
@@ -86,14 +86,27 @@ const Email = ({ classes }) => {
           </div>
         </Tile>
       </div>
-      <EmailDualChart data={subscriptionData} title={title.subscriptions} />
-      <EmailDualChart data={engagementData} title={title.engagement} />
+      <EmailDualChart
+        data={subscriptionData}
+        title={title.subscriptions}
+        downloadIds={["RpNskFZ", "cJFjMjN"]}
+      />
+      <EmailDualChart
+        data={engagementData}
+        title={title.engagement}
+        downloadIds={["JwPMwn", "BLMkPQn"]}
+      />
       <EmailMultipleChart
         data={revenueData}
         title={title.revenue}
         type='revenue'
+        downloadIds={["RUMhhFk", "PeKKS", "zexksT"]}
       />
-      <EmailMultipleChart data={trafficData} title={title.traffic} />
+      <EmailMultipleChart
+        data={trafficData}
+        title={title.traffic}
+        downloadIds={["ezpwKU", "eJZJe", "amGPVAj", "prhbYm"]}
+      />
     </div>
   );
 };

@@ -10,19 +10,17 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     margin: "0px 20px 25px"
-    //border:"1px solid black",
-    //height:"500px"
   },
   fullRowItem: {
     flex: 2
   }
 };
 
-const EmailDualCharts = ({ classes, data, title }) => {
+const EmailDualCharts = ({ classes, data, title, downloadIds }) => {
   //returning tiles with two charts
   return (
     <div className={classes.tileContainer}>
-      <Tile title={title}>
+      <Tile title={title} downloadIds={downloadIds}>
         {data.map((d, i) => {
           return (
             <div className={classes.row} key={i}>

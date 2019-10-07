@@ -14,6 +14,7 @@ import {
 import withStyles from "react-jss";
 import classNames from "classnames";
 import dropdown from "../resources/images/dropdown.png";
+import { useSelectFieldValues } from "dash-component-library/hooks";
 
 const styles = {
   navPanel: {
@@ -36,6 +37,20 @@ const styles = {
   }
 };
 
+const defaultDateRange = () => {
+  var jan1990 = new Date(1899, 11, 30);
+  var today = new Date();
+  var difference = (today - jan1990) / 86400000;
+  var formattedDate = Math.floor(difference);
+  formattedDate = Number(formattedDate);
+  let dateArray = [];
+  for (let i = 1; i <= 14; i++) {
+    dateArray.push(formattedDate - i);
+  }
+
+  return dateArray;
+};
+
 const DropdownButton = withStyles(styles)(
   ({ classes, children, ...dropdownButtonProps }) => {
     return (
@@ -56,16 +71,27 @@ export default withStyles(styles)(({ classes }) => {
     rxq: { doc$ }
   } = useSession()[0];
 
+  const { select: select_date } = useSelectFieldValues({
+    field: "Date"
+  });
+
   const [dataAsOfDate, setDataAsOfDate] = useState(null);
   useEffect(() => {
     const sub$ = doc$
       .pipe(
-        qAskReplayRetry("GetVariableByName", "vMaxDate"),
+        qAskReplayRetry("CreateSessionObject", {
+          qInfo: { qType: "kpi" },
+          date: {
+            qStringExpression: `=Date($(asofdate))`
+          }
+        }),
         invalidations(true),
         qAskReplayRetry("GetLayout"),
-        map(layout => layout.qText)
+        map(layout => layout.date)
       )
       .subscribe(setDataAsOfDate);
+
+    select_date(defaultDateRange());
 
     return () => sub$.unsubscribe();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -127,7 +153,7 @@ export default withStyles(styles)(({ classes }) => {
             type='QdtViz'
             qdtProps={{
               type: "vizlib-calendar",
-              id: "zfSE",
+              id: "EHeTqgC",
               width: "600px",
               height: "300px"
             }}
