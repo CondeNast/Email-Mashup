@@ -9,7 +9,8 @@ import {
   ClearButton,
   AnalystButton,
   Dropdown,
-  QdtComponent
+  QdtComponent,
+  CurrentSelections
 } from "dash-component-library/components";
 import withStyles from "react-jss";
 import classNames from "classnames";
@@ -56,7 +57,7 @@ const DropdownButton = withStyles(styles)(
     return (
       <Button
         className={classes.dropdownButton}
-        Icon={<img className='dropdown-icon' src={dropdown} alt='drop-down' />}
+        Icon={<img className="dropdown-icon" src={dropdown} alt="drop-down" />}
         {...dropdownButtonProps}
       >
         {children}
@@ -73,6 +74,10 @@ export default withStyles(styles)(({ classes }) => {
 
   const { select: select_date } = useSelectFieldValues({
     field: "Date"
+  });
+
+  const { select: select_mailing_status } = useSelectFieldValues({
+    field: "mailing_status"
   });
 
   const [dataAsOfDate, setDataAsOfDate] = useState(null);
@@ -99,6 +104,11 @@ export default withStyles(styles)(({ classes }) => {
 
   const [currentBrandSelection, setCurrentBrandSelection] = useState(null);
 
+  const onClear = () => {
+    select_date(defaultDateRange());
+    select_mailing_status(["All Mailings"]);
+  };
+
   return (
     <div className={classNames("nav-panel", classes.navPanel)}>
       <div className={classNames("nav-panel__item", classes.navPanel__item)}>
@@ -114,7 +124,7 @@ export default withStyles(styles)(({ classes }) => {
         className={classes.dropdown}
       >
         <BrandSelector
-          field='Brand'
+          field="Brand"
           setSelectedBrand={setCurrentBrandSelection}
           fieldMap={{
             Allure: "ALL",
@@ -140,7 +150,7 @@ export default withStyles(styles)(({ classes }) => {
       </Dropdown>
       <Dropdown
         DropdownButton={DropdownButton}
-        dropdownButtonChildren='Period'
+        dropdownButtonChildren="Period"
         className={classes.dropdown}
       >
         <div
@@ -150,7 +160,7 @@ export default withStyles(styles)(({ classes }) => {
           )}
         >
           <QdtComponent
-            type='QdtViz'
+            type="QdtViz"
             qdtProps={{
               type: "vizlib-calendar",
               id: "EHeTqgC",
@@ -160,7 +170,8 @@ export default withStyles(styles)(({ classes }) => {
           />
         </div>
       </Dropdown>
-      <ClearButton />
+      <CurrentSelections></CurrentSelections>
+      <ClearButton onClear={() => onClear()} />
       <AnalystButton
         className={classNames(
           "nav-panel__analyst-button",
