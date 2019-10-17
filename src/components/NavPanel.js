@@ -170,7 +170,6 @@ export default withStyles(styles)(({ classes }) => {
           />
         </div>
       </Dropdown>
-      <CurrentSelections></CurrentSelections>
       <ClearButton onClear={() => onClear()} />
       <AnalystButton
         className={classNames(
