@@ -30,7 +30,7 @@ const EmailDualCharts = ({ classes, data, title, downloadIds }) => {
                   app={"Email Mashup"}
                   qdtProps={{
                     id: d,
-                    height: "400px"
+                    height: "500px"
                   }}
                 ></QdtComponent>
               </div>

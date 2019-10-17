@@ -21,8 +21,8 @@ const styles = {
     flex: 2
   }
 };
-const timeData = ["wKCg", "VdyavG", "PJZnfHy", "AbCcrQj", "pXSyT"];
-const newsData = "XCYtj";
+const timeData = ["VdyavG", "PJZnfHy", "AbCcrQj", "pXSyT"];
+// const newsData = "XCYtj";
 const subscriptionData = ["RpNskFZ", "cJFjMjN"];
 const engagementData = ["JwPMwn", "BLMkPQn"];
 
@@ -70,7 +70,7 @@ const Email = ({ classes }) => {
       </div>
 
       {/* Newsletter Tile */}
-      <div className={classes.tileContainer}>
+      {/* <div className={classes.tileContainer}>
         <Tile title={title.news}>
           <div className={classes.row}>
             <div className={classes.fullRowItem}>
@@ -85,7 +85,7 @@ const Email = ({ classes }) => {
             </div>
           </div>
         </Tile>
-      </div>
+      </div> */}
       <EmailDualChart
         data={subscriptionData}
         title={title.subscriptions}
