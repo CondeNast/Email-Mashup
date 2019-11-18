@@ -151,8 +151,8 @@ export default withStyles(styles)(({ classes }) => {
             "Vanity Fair": "VF",
             Vogue: "VOG",
             Wired: "WIRE"
-          }}
-        />
+          }} */}
+        {/* />
       </Dropdown> */}
       <Dropdown
         DropdownButton={DropdownButton}

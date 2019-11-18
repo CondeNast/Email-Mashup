@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import {
   Tile,
   QdtComponent,
@@ -8,7 +8,7 @@ import {
 import { withStyles } from "@material-ui/styles";
 import EmailDualChart from "./email-dual-chart";
 import EmailMultipleChart from "./email-multiple-chart";
-import {format} from "d3";
+import { format } from "d3";
 import { qAskReplayRetry } from "dash-component-library/operators";
 import { invalidations } from "rxq";
 import { useSession } from "dash-component-library/context";
@@ -36,8 +36,8 @@ const styles = {
     display: "flex",
     flexDirection: "column"
   },
-  kpiValue:{
-    fontSize: "55px",
+  kpiValue: {
+    fontSize: "55px"
   },
   kpiSub: {
     fontSize: "20px",
@@ -101,7 +101,7 @@ const Email = ({ classes }) => {
     revenue: "-",
     revenueSub: "-",
     visits: "-",
-    visitsSub: "-",
+    visitsSub: "-"
   });
 
   useEffect(() => {
@@ -110,9 +110,10 @@ const Email = ({ classes }) => {
         qAskReplayRetry("CreateSessionObject", {
           qInfo: { qType: "kpi" },
           netSubs: {
-            qValueExpression: "=sum({<mailing_status=>}Sub_Count) - sum({<mailing_status=>}Unsub_Count)"
+            qValueExpression:
+              "=sum({<mailing_status=>}Sub_Count) - sum({<mailing_status=>}Unsub_Count)"
           },
-          clicksOpen:{
+          clicksOpen: {
             qValueExpression: "=sum(unique_clicks)/sum(unique_opens)"
           },
           clicksSub: {
@@ -120,17 +121,19 @@ const Email = ({ classes }) => {
               "=(num(sum(unique_opens)/(sum(sent)-sum(bounce)), '#,##0.0%'))"
           },
           revenue: {
-            qValueExpression: "=sum({<[Join Snapshot]={'$(vSalesTY)'},Date=,mailing_status=,[Revenue Type]={*},[Company]={*}>}Revenue)"
+            qValueExpression:
+              "=sum({<[Join Snapshot]={'$(vSalesTY)'},Date=,mailing_status=,[Revenue Type]={*},[Company]={*}>}Revenue)"
           },
           revenueSub: {
-            qValueExpression: "=(num((sum({<[Join Snapshot]={'$(vSalesTY)'},Date=,mailing_status=,[Revenue Type]={*},[Company]={*}>}Revenue) - sum({<[Join Snapshot]={'$(vSalesLY)'},Date=,mailing_status=,[Revenue Type]={*},[Company]={*}>}Revenue))/sum({<[Join Snapshot]={'$(vSalesLY)'},Date=,mailing_status=,[Revenue Type]={*},[Company]={*}>}Revenue), '#,##0.0%'))"
+            qValueExpression:
+              "=(num((sum({<[Join Snapshot]={'$(vSalesTY)'},Date=,mailing_status=,[Revenue Type]={*},[Company]={*}>}Revenue) - sum({<[Join Snapshot]={'$(vSalesLY)'},Date=,mailing_status=,[Revenue Type]={*},[Company]={*}>}Revenue))/sum({<[Join Snapshot]={'$(vSalesLY)'},Date=,mailing_status=,[Revenue Type]={*},[Company]={*}>}Revenue), '#,##0.0%'))"
           },
           visits: {
-            qValueExpression:
-              "=Sum({<mailing_status=>}total_nl_visits)"
+            qValueExpression: "=Sum({<mailing_status=>}total_nl_visits)"
           },
           visitsSub: {
-            qValueExpression: "=(num(sum({<mailing_status=>}total_nl_visits)/sum({<mailing_status=>}total_visits), '#,##0.0%'))"
+            qValueExpression:
+              "=(num(sum({<mailing_status=>}total_nl_visits)/sum({<mailing_status=>}total_visits), '#,##0.0%'))"
           }
         }),
         invalidations(true),
@@ -144,7 +147,7 @@ const Email = ({ classes }) => {
           revenue: format("$.2s")(layout.revenue),
           revenueSub: format("+.2%")(layout.revenueSub),
           visits: format(".2s")(layout.visits),
-          visitsSub: format(".1%")(layout.visitsSub),
+          visitsSub: format(".1%")(layout.visitsSub)
         });
       });
 
@@ -159,36 +162,39 @@ const Email = ({ classes }) => {
         <Tile title={title.summary} anchor={"summary"}>
           <div className={classes.kpiContainer}>
             <div className={classes.kpiColumn}>
-            <Kpi className={classes.kpiObject} label='Net Subs'>
-              <div className={classes.kpiValue}>{kpiValues.netSubs}</div>
-            </Kpi>
-            <div className={classes.kpiSource}>Acxiom</div>
+              <Kpi className={classes.kpiObject} label="Net Subs">
+                <div className={classes.kpiValue}>{kpiValues.netSubs}</div>
+              </Kpi>
+              <div className={classes.kpiSource}>Acxiom</div>
             </div>
-<div className={classes.kpiColumn}>
-  <Kpi className={classes.kpiObject} label='Clicks to Open %'>
-  <div className={classes.kpiValue}>{kpiValues.clicksOpen}</div>
-  <div className={classes.kpiSub}>{`Unique Open: ${kpiValues.clicksSub}`}</div>
-  </Kpi>
-  <div className={classes.kpiSource}>Silverpop</div>
-</div>
-<div className={classes.kpiColumn}>
-  <Kpi className={classes.kpiObject} label='Revenue YTD'>
-  <div className={classes.kpiValue}>{kpiValues.revenue}</div>
-  <div className={classes.kpiSub}>{`${kpiValues.revenueSub} YoY`}</div>
-  </Kpi>
-  <div className={classes.kpiSource}>Adbook</div>
-</div>
-<div className={classes.kpiColumn}>
-  <Kpi className={classes.kpiObject} label='Visits'>
-  <div className={classes.kpiValue}>{kpiValues.visits}</div>
-  <div className={classes.kpiSub}>{`${kpiValues.visitsSub} Traffic Share`}</div>
-  </Kpi>
-  <div className={classes.kpiSource}>Google Analytics</div>
-</div>
-
-
+            <div className={classes.kpiColumn}>
+              <Kpi className={classes.kpiObject} label="Clicks to Open %">
+                <div className={classes.kpiValue}>{kpiValues.clicksOpen}</div>
+                <div
+                  className={classes.kpiSub}
+                >{`Unique Open: ${kpiValues.clicksSub}`}</div>
+              </Kpi>
+              <div className={classes.kpiSource}>Silverpop</div>
+            </div>
+            <div className={classes.kpiColumn}>
+              <Kpi className={classes.kpiObject} label="Revenue YTD">
+                <div className={classes.kpiValue}>{kpiValues.revenue}</div>
+                <div
+                  className={classes.kpiSub}
+                >{`${kpiValues.revenueSub} YoY`}</div>
+              </Kpi>
+              <div className={classes.kpiSource}>Adbook</div>
+            </div>
+            <div className={classes.kpiColumn}>
+              <Kpi className={classes.kpiObject} label="Visits">
+                <div className={classes.kpiValue}>{kpiValues.visits}</div>
+                <div
+                  className={classes.kpiSub}
+                >{`${kpiValues.visitsSub} Traffic Share`}</div>
+              </Kpi>
+              <div className={classes.kpiSource}>Google Analytics</div>
+            </div>
           </div>
-
         </Tile>
       </div>
       <EmailDualChart
@@ -196,12 +202,14 @@ const Email = ({ classes }) => {
         data={subscriptionData}
         title={title.subscriptions}
         downloadIds={["RpNskFZ", "cJFjMjN"]}
+        footer={"Source: Axciom"}
       />
       <EmailDualChart
         anchor={"engagement"}
         data={engagementData}
         title={title.engagement}
         downloadIds={["JwPMwn", "BLMkPQn"]}
+        footer={"Source: Axciom"}
       />
       <EmailMultipleChart
         anchor={"revenue"}
@@ -209,6 +217,7 @@ const Email = ({ classes }) => {
         title={title.revenue}
         type="revenue"
         downloadIds={["RUMhhFk", "PeKKS", "zexksT"]}
+        footer={"footer test"}
       />
       <EmailMultipleChart
         anchor={"traffic"}
