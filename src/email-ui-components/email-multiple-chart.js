@@ -4,7 +4,7 @@ import { withStyles } from "@material-ui/styles";
 
 const styles = {
   tileContainer: {
-    margin: "20px"
+    margin: "20px 0px"
   },
   row: {
     display: "flex",

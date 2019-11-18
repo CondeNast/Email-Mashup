@@ -15,7 +15,7 @@ import { useSession } from "dash-component-library/context";
 
 const styles = {
   tileContainer: {
-    margin: "20px"
+    margin: "20px 0px"
   },
   row: {
     display: "flex",
@@ -35,6 +35,9 @@ const styles = {
   kpiObject: {
     display: "flex",
     flexDirection: "column"
+  },
+  kpiValue:{
+    fontSize: "55px",
   },
   kpiSub: {
     fontSize: "20px",

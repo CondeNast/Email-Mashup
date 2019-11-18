@@ -10,7 +10,8 @@ import {
   AnalystButton,
   Dropdown,
   QdtComponent,
-  CurrentSelections
+  CurrentSelections,
+  BrandDropdown
 } from "dash-component-library/components";
 import withStyles from "react-jss";
 import classNames from "classnames";
@@ -116,7 +117,32 @@ export default withStyles(styles)(({ classes }) => {
         <br />
         {dataAsOfDate}
       </div>
-      <Dropdown
+      <BrandDropdown 
+        field="Brand"
+        DropdownButton={DropdownButton}
+        dropdownButtonChildren={`Brand${
+          currentBrandSelection !== null ? `: ${currentBrandSelection}` : ""
+        }`}
+        className={classes.dropdown}
+        fieldMap={{
+          Allure: "ALL",
+          "Architectural Digest": "AD",
+          "Ars Technica": "ARST",
+          "Bon Appetit": "BA",
+          "CN Traveler": "CNT",
+          Epicurious: "EPIC",
+          Glamour: "GLAM",
+          GQ: "GQ",
+          Pitchfork: "PTFK",
+          Self: "SELF",
+          "Teen Vogue": "VOGT",
+          "The New Yorker": "TNY",
+          "Vanity Fair": "VF",
+          Vogue: "VOG",
+          Wired: "WIRE"
+        }}
+      />
+      {/* <Dropdown
         DropdownButton={DropdownButton}
         dropdownButtonChildren={`Brand${
           currentBrandSelection !== null ? `: ${currentBrandSelection}` : ""
@@ -131,11 +157,9 @@ export default withStyles(styles)(({ classes }) => {
             "Architectural Digest": "AD",
             "Ars Technica": "ARST",
             "Bon Appetit": "BA",
-            Brides: "BRDE",
             "CN Traveler": "CNT",
             Epicurious: "EPIC",
             Glamour: "GLAM",
-            "Golf Digest": "GFDG",
             GQ: "GQ",
             Pitchfork: "PTFK",
             Self: "SELF",
@@ -143,11 +167,10 @@ export default withStyles(styles)(({ classes }) => {
             "The New Yorker": "TNY",
             "Vanity Fair": "VF",
             Vogue: "VOG",
-            "W Magazine": "W",
             Wired: "WIRE"
           }}
         />
-      </Dropdown>
+      </Dropdown> */}
       <Dropdown
         DropdownButton={DropdownButton}
         dropdownButtonChildren="Period"
