@@ -124,23 +124,6 @@ export default withStyles(styles)(({ classes }) => {
           currentBrandSelection !== null ? `: ${currentBrandSelection}` : ""
         }`}
         className={classes.dropdown}
-        fieldMap={{
-          Allure: "ALL",
-          "Architectural Digest": "AD",
-          "Ars Technica": "ARST",
-          "Bon Appetit": "BA",
-          "CN Traveler": "CNT",
-          Epicurious: "EPIC",
-          Glamour: "GLAM",
-          GQ: "GQ",
-          Pitchfork: "PTFK",
-          Self: "SELF",
-          "Teen Vogue": "VOGT",
-          "The New Yorker": "TNY",
-          "Vanity Fair": "VF",
-          Vogue: "VOG",
-          Wired: "WIRE"
-        }}
       />
       {/* <Dropdown
         DropdownButton={DropdownButton}

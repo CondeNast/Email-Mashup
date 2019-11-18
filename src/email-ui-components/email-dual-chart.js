@@ -16,11 +16,14 @@ const styles = {
   }
 };
 
-const EmailDualCharts = ({ classes, data, title, downloadIds }) => {
+const EmailDualCharts = ({ classes, data, title, downloadIds, anchor }) => {
   //returning tiles with two charts
   return (
     <div className={classes.tileContainer}>
-      <Tile title={title} downloadIds={downloadIds}>
+      <Tile 
+      title={title} 
+      downloadIds={downloadIds}
+      anchor={anchor}>
         {data.map((d, i) => {
           return (
             <div className={classes.row} key={i}>
