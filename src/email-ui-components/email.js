@@ -209,7 +209,7 @@ const Email = ({ classes }) => {
         data={engagementData}
         title={title.engagement}
         downloadIds={["JwPMwn", "BLMkPQn"]}
-        footer={"Source: Axciom"}
+        footer={"Source: Silverpop"}
       />
       <EmailMultipleChart
         anchor={"revenue"}
@@ -217,13 +217,14 @@ const Email = ({ classes }) => {
         title={title.revenue}
         type="revenue"
         downloadIds={["RUMhhFk", "PeKKS", "zexksT"]}
-        footer={"footer test"}
+        footer={"Source: Adbook"}
       />
       <EmailMultipleChart
         anchor={"traffic"}
         data={trafficData}
         title={title.traffic}
         downloadIds={["ezpwKU", "eJZJe", "amGPVAj", "prhbYm"]}
+        footer={"Source: Omniture & Google Analytics"}
       />
     </div>
   );
