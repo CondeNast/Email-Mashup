@@ -4,7 +4,7 @@ import { withStyles } from "@material-ui/styles";
 
 const styles = {
   tileContainer: {
-    margin: "20px"
+    margin: "20px 0px"
   },
   row: {
     display: "flex",
@@ -16,11 +16,15 @@ const styles = {
   }
 };
 
-const EmailDualCharts = ({ classes, data, title, downloadIds }) => {
+const EmailDualCharts = ({ classes, data, title, downloadIds, anchor, footer }) => {
   //returning tiles with two charts
   return (
     <div className={classes.tileContainer}>
-      <Tile title={title} downloadIds={downloadIds}>
+      <Tile 
+      title={title} 
+      downloadIds={downloadIds}
+      anchor={anchor}
+      footer={footer}>
         {data.map((d, i) => {
           return (
             <div className={classes.row} key={i}>

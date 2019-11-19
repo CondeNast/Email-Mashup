@@ -4,7 +4,7 @@ import { withStyles } from "@material-ui/styles";
 
 const styles = {
   tileContainer: {
-    margin: "20px"
+    margin: "20px 0px"
   },
   row: {
     display: "flex",
@@ -25,11 +25,11 @@ const styles = {
   }
 };
 
-const EmailMultipleCharts = ({ classes, data, title, type, downloadIds }) => {
+const EmailMultipleCharts = ({ classes, data, title, type, downloadIds, anchor, footer }) => {
   //returning tiles with more than two charts
   return (
     <div className={classes.tileContainer}>
-      <Tile title={title} downloadIds={downloadIds}>
+      <Tile title={title} downloadIds={downloadIds} anchor={anchor} footer={footer}>
         <div className={classes.row}>
           {/* Checking if it is of type revenue to assign particular class and handle spacing */}
           <div

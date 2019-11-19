@@ -10,7 +10,8 @@ import {
   AnalystButton,
   Dropdown,
   QdtComponent,
-  CurrentSelections
+  CurrentSelections,
+  BrandDropdown
 } from "dash-component-library/components";
 import withStyles from "react-jss";
 import classNames from "classnames";
@@ -25,8 +26,6 @@ const styles = {
     width: "calc(100%)",
     "& .dropdown-icon": { width: "10px" }
   },
-  navPanel__brandDropdown: { marginRight: "10px" },
-  navPanel__periodDropdown: { marginRight: "10px" },
   navPanel__analystButton: { marginLeft: "auto" },
   navPanel__item: { marginRight: "35px" },
   dropdownButton: { "&:hover": { backgroundColor: "#212121" } },
@@ -34,7 +33,11 @@ const styles = {
   periodDropdown__container: {
     padding: "20px",
     textAlign: "center",
-    backgroundColor: "#343a40"
+    backgroundColor: "#343a40",
+    "& .vizlib-calendar__calendar-controls": {
+      backgroundColor: "transparent !important",
+      border: "none !important"
+    }
   }
 };
 
@@ -116,38 +119,14 @@ export default withStyles(styles)(({ classes }) => {
         <br />
         {dataAsOfDate}
       </div>
-      <Dropdown
+      <BrandDropdown
+        field="Brand"
         DropdownButton={DropdownButton}
         dropdownButtonChildren={`Brand${
           currentBrandSelection !== null ? `: ${currentBrandSelection}` : ""
         }`}
         className={classes.dropdown}
-      >
-        <BrandSelector
-          field="Brand"
-          setSelectedBrand={setCurrentBrandSelection}
-          fieldMap={{
-            Allure: "ALL",
-            "Architectural Digest": "AD",
-            "Ars Technica": "ARST",
-            "Bon Appetit": "BA",
-            Brides: "BRDE",
-            "CN Traveler": "CNT",
-            Epicurious: "EPIC",
-            Glamour: "GLAM",
-            "Golf Digest": "GFDG",
-            GQ: "GQ",
-            Pitchfork: "PTFK",
-            Self: "SELF",
-            "Teen Vogue": "VOGT",
-            "The New Yorker": "TNY",
-            "Vanity Fair": "VF",
-            Vogue: "VOG",
-            "W Magazine": "W",
-            Wired: "WIRE"
-          }}
-        />
-      </Dropdown>
+      />
       <Dropdown
         DropdownButton={DropdownButton}
         dropdownButtonChildren="Period"
