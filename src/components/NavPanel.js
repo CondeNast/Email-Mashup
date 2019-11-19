@@ -69,7 +69,7 @@ const DropdownButton = withStyles(styles)(
   }
 );
 
-export default withStyles(styles)(({ classes }) => {
+export default withStyles(styles)(({ prefix, classes }) => {
   const {
     app,
     rxq: { doc$ }
@@ -155,7 +155,9 @@ export default withStyles(styles)(({ classes }) => {
           "nav-panel__analyst-button",
           classes.navPanel__analystButton
         )}
-        url={`https://dash.condenast.com/sense/app/${app}`}
+        url={`https://dash.condenast.com${
+          prefix.length ? `/${prefix}` : ""
+        }/sense/app/${app}`}
       />
     </div>
   );

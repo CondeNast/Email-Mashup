@@ -5,6 +5,16 @@ import Email from "./email-ui-components/email";
 import withStyles from "react-jss";
 import { NavPanel } from "./components";
 
+const prefix = window.location.pathname.substr(
+  1,
+  window.location.pathname.toLowerCase().lastIndexOf("/extensions") - 1
+);
+
+const qlikConfigWithPrefix = {
+  ...qlikConfig,
+  prefix
+};
+
 const styles = {
   app: {
     padding: "0 10% 138px",
@@ -18,8 +28,8 @@ const styles = {
 function App({ classes }) {
   return (
     <div className={classes.app}>
-      <SessionProvider qlikConfig={qlikConfig}>
-        <NavPanel />
+      <SessionProvider qlikConfig={qlikConfigWithPrefix}>
+        <NavPanel prefix={prefix} />
         <Email />
       </SessionProvider>
     </div>
