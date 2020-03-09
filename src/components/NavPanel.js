@@ -5,13 +5,12 @@ import { map } from "rxjs/operators";
 import { qAskReplayRetry } from "dash-component-library/operators";
 import {
   Button,
-  BrandSelector,
   ClearButton,
   AnalystButton,
   Dropdown,
   QdtComponent,
-  CurrentSelections,
-  BrandDropdown
+  BrandDropdown,
+  QlikFilter
 } from "dash-component-library/components";
 import withStyles from "react-jss";
 import classNames from "classnames";
@@ -127,6 +126,7 @@ export default withStyles(styles)(({ prefix, classes }) => {
         }`}
         className={classes.dropdown}
       />
+      {/* <QlikFilter fieldName="Brand" displayName="Brand" /> */}
       <Dropdown
         DropdownButton={DropdownButton}
         dropdownButtonChildren="Period"
