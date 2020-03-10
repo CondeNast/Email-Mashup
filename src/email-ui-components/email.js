@@ -174,7 +174,7 @@ const Email = ({ classes }) => {
                   className={classes.kpiSub}
                 >{`Unique Open: ${kpiValues.clicksSub}`}</div>
               </Kpi>
-              <div className={classes.kpiSource}>Silverpop</div>
+              <div className={classes.kpiSource}>Silverpop (currently unavailable)</div>
             </div>
             <div className={classes.kpiColumn}>
               <Kpi className={classes.kpiObject} label="Revenue YTD">
