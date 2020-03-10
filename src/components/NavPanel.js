@@ -5,13 +5,12 @@ import { map } from "rxjs/operators";
 import { qAskReplayRetry } from "dash-component-library/operators";
 import {
   Button,
-  BrandSelector,
   ClearButton,
   AnalystButton,
   Dropdown,
   QdtComponent,
-  CurrentSelections,
-  BrandDropdown
+  BrandDropdown,
+  QlikFilter
 } from "dash-component-library/components";
 import withStyles from "react-jss";
 import classNames from "classnames";
@@ -119,14 +118,17 @@ export default withStyles(styles)(({ prefix, classes }) => {
         <br />
         {dataAsOfDate}
       </div>
-      <BrandDropdown
+      {/* <BrandDropdown
         field="Brand"
         DropdownButton={DropdownButton}
         dropdownButtonChildren={`Brand${
           currentBrandSelection !== null ? `: ${currentBrandSelection}` : ""
         }`}
         className={classes.dropdown}
-      />
+      /> */}
+      <div className={classes.dropdown}>
+      <QlikFilter fieldName="Brand" displayName="Brands" />
+      </div>
       <Dropdown
         DropdownButton={DropdownButton}
         dropdownButtonChildren="Period"
