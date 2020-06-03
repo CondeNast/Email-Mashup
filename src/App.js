@@ -4,6 +4,8 @@ import { qlikConfig } from "./config";
 import Email from "./email-ui-components/email";
 import withStyles from "react-jss";
 import { NavPanel } from "./components";
+import { HashRouter as Router } from "react-router-dom";
+import QueryFiltersComponent from "./Filters/querryFilters";
 
 const prefix = window.location.pathname.substr(
   1,
@@ -24,13 +26,22 @@ const styles = {
     backgroundColor: "#F2F2F2"
   }
 };
-
+const dateFormat = {
+  Date: "M/D/YYYY"
+};
 function App({ classes }) {
   return (
     <div className={classes.app}>
       <SessionProvider qlikConfig={qlikConfigWithPrefix}>
-        <NavPanel prefix={prefix} />
-        <Email />
+        <Router>
+          <QueryFiltersComponent
+            maxFieldValues={100}
+            listFields={[]}
+            dateFormat={dateFormat}
+          />
+          <NavPanel prefix={prefix} />
+          <Email />
+        </Router>
       </SessionProvider>
     </div>
   );

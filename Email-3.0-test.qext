@@ -1,0 +1,15 @@
+{
+  "type":"mashup",
+  "name":"Email-3.0 test",
+  "description":"React App for Email Mashup test",
+  "homepage":"",
+  "author":"Conde Nast Data Viz",
+  "version":"0.1.0",
+  "preview":"preview.png",
+  "keywords":"qlik-sense, mashup, react",
+  "license":"",
+  "repository":"",
+  "dependencies":{
+    "qlik-sense":">=1.0.x"
+  }
+}

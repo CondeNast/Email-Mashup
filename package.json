@@ -5,7 +5,7 @@
   "private": true,
   "dependencies": {
     "classnames": "^2.2.6",
-    "dash-component-library": "^0.5.11",
+    "dash-component-library": "^0.5.17-beta.3",
     "qdt-components": "1.3.28",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
@@ -22,8 +22,11 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "copy-qext": "cp Email-3.0.qext ./build",
+    "copy-qext-test": "cp Email-3.0-test.qext ./build",
     "zipBuild": "bestzip Email-3.0.zip ./build",
+    "zipBuildTest": "bestzip Email-3.0-test.zip ./build",
     "build-mashup": "npm run build && npm run copy-qext && npm run zipBuild",
+    "build-mashup-test": "npm run build && npm run copy-qext-test && npm run zipBuildTest",
     "update:dash-component-library": "rm -f dash-component-library-1.0.0.tar.gz && cp \"/Users/johnbellizzi/Desktop/Clients/Conde Nast/Dash Component Library/Development/dash-component-library/dash-component-library-1.0.0.tar.gz\" ./ && npm install file:dash-component-library-1.0.0.tar.gz"
   },
   "eslintConfig": {
