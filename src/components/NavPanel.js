@@ -23,6 +23,10 @@ const styles = {
     alignItems: "center",
     padding: "20px 0",
     width: "calc(100%)",
+    position: "sticky",
+    top: 0,
+    zIndex: 4,
+    backgroundColor: "#f2f2f2",
     "& .dropdown-icon": { width: "10px" }
   },
   navPanel__analystButton: { marginLeft: "auto" },
@@ -118,16 +122,8 @@ export default withStyles(styles)(({ prefix, classes }) => {
         <br />
         {dataAsOfDate}
       </div>
-      {/* <BrandDropdown
-        field="Brand"
-        DropdownButton={DropdownButton}
-        dropdownButtonChildren={`Brand${
-          currentBrandSelection !== null ? `: ${currentBrandSelection}` : ""
-        }`}
-        className={classes.dropdown}
-      /> */}
       <div className={classes.dropdown}>
-      <QlikFilter fieldName="Brand" displayName="Brands" />
+        <QlikFilter fieldName="Brand" displayName="Brands" />
       </div>
       <Dropdown
         DropdownButton={DropdownButton}
