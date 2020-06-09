@@ -122,14 +122,6 @@ export default withStyles(styles)(({ prefix, classes }) => {
         <br />
         {dataAsOfDate}
       </div>
-      {/* <BrandDropdown
-        field="Brand"
-        DropdownButton={DropdownButton}
-        dropdownButtonChildren={`Brand${
-          currentBrandSelection !== null ? `: ${currentBrandSelection}` : ""
-        }`}
-        className={classes.dropdown}
-      /> */}
       <div className={classes.dropdown}>
         <QlikFilter fieldName="Brand" displayName="Brands" />
       </div>
