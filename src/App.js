@@ -3,7 +3,7 @@ import { SessionProvider } from "dash-component-library/context";
 import { qlikConfig } from "./config";
 import Email from "./email-ui-components/email";
 import withStyles from "react-jss";
-import { NavPanel } from "./components";
+
 import { HashRouter as Router } from "react-router-dom";
 import QueryFiltersComponent from "./Filters/querryFilters";
 
@@ -39,8 +39,8 @@ function App({ classes }) {
             listFields={[]}
             dateFormat={dateFormat}
           />
-          <NavPanel prefix={prefix} />
-          <Email />
+
+          <Email prefix={prefix} />
         </Router>
       </SessionProvider>
     </div>

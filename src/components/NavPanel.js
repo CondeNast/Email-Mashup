@@ -72,7 +72,7 @@ const DropdownButton = withStyles(styles)(
   }
 );
 
-export default withStyles(styles)(({ prefix, classes }) => {
+export default withStyles(styles)(({ prefix, classes, minDate, maxDate }) => {
   const {
     app,
     rxq: { doc$ }
@@ -127,7 +127,9 @@ export default withStyles(styles)(({ prefix, classes }) => {
       </div>
       <Dropdown
         DropdownButton={DropdownButton}
-        dropdownButtonChildren="Period"
+        dropdownButtonChildren={
+          minDate && maxDate ? `Period (${minDate} - ${maxDate})` : `Period`
+        }
         className={classes.dropdown}
       >
         <div
