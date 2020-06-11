@@ -9,11 +9,16 @@ import { withStyles } from "@material-ui/styles";
 import EmailDualChart from "./email-dual-chart";
 import EmailMultipleChart from "./email-multiple-chart";
 import { format } from "d3";
+import { NavPanel } from "../components";
 import { qAskReplayRetry } from "dash-component-library/operators";
 import { invalidations } from "rxq";
 import { useSession } from "dash-component-library/context";
+import useSelectedFieldsHandle from "dash-component-library/hooks/useSelectedFields";
 
 const styles = {
+  topTileContainer: {
+    marginBottom: "20px"
+  },
   tileContainer: {
     margin: "20px 0px"
   },
@@ -89,7 +94,14 @@ const title = {
   revenue: "REVENUE YTD",
   traffic: "TRAFFIC"
 };
-const Email = ({ classes }) => {
+const Email = ({ classes, prefix }) => {
+  const selectedFields = useSelectedFieldsHandle(1000);
+  let minDate = null,
+    maxDate = null;
+  if (selectedFields && selectedFields.Date && selectedFields.Date.length > 1) {
+    minDate = selectedFields.Date[0];
+    maxDate = selectedFields.Date[selectedFields.Date.length - 1];
+  }
   const {
     rxq: { doc$ }
   } = useSession()[0];
@@ -158,7 +170,8 @@ const Email = ({ classes }) => {
     <div className={classes.emailContainer}>
       <Navigator positions={positions} />
       {/* Summary Tile */}
-      <div className={classes.tileContainer}>
+      <NavPanel prefix={prefix} minDate={minDate} maxDate={maxDate} />
+      <div className={classes.topTileContainer}>
         <Tile title={title.summary} anchor={"summary"}>
           <div className={classes.kpiContainer}>
             <div className={classes.kpiColumn}>
@@ -174,7 +187,9 @@ const Email = ({ classes }) => {
                   className={classes.kpiSub}
                 >{`Unique Open: ${kpiValues.clicksSub}`}</div>
               </Kpi>
-              <div className={classes.kpiSource}>Silverpop (currently unavailable)</div>
+              <div className={classes.kpiSource}>
+                Silverpop (currently unavailable)
+              </div>
             </div>
             <div className={classes.kpiColumn}>
               <Kpi className={classes.kpiObject} label="Revenue YTD">
