@@ -46,6 +46,6 @@
     ]
   },
   "devDependencies": {
-    "bestzip": "^2.1.4"
+    "bestzip": "^2.1.7"
   }
 }
