@@ -13,8 +13,9 @@ import { NavPanel } from "../components";
 import { qAskReplayRetry } from "dash-component-library/operators";
 import { invalidations } from "rxq";
 import { useSession } from "dash-component-library/context";
+import { useSetBookmark } from "dash-component-library/hooks";
 import useSelectedFieldsHandle from "dash-component-library/hooks/useSelectedFields";
-
+import { qlikConfig } from "../config";
 const styles = {
   topTileContainer: {
     marginBottom: "20px"
@@ -166,6 +167,10 @@ const Email = ({ classes, prefix }) => {
     return () => sub$.unsubscribe();
   }, [doc$]);
 
+  const { setBookmark } = useSetBookmark();
+  useEffect(() => {
+    setBookmark(qlikConfig.initialBookmark);
+  }, []);
   return (
     <div className={classes.emailContainer}>
       <Navigator positions={positions} />
