@@ -142,7 +142,7 @@ export default withStyles(styles)(({ prefix, classes, minDate, maxDate }) => {
             type="QdtViz"
             qdtProps={{
               type: "vizlib-calendar",
-              id: "EHeTqgC",
+              id: "87425376-8aad-415c-aed0-6c709a5b5853",
               width: "600px",
               height: "300px"
             }}
